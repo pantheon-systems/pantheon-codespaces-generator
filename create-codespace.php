@@ -33,7 +33,9 @@ $data = json_encode([
     'name' => $REPO_NAME,
 ]);
 $reply_raw = shell_exec("curl -X POST -H \"Accept: application/vnd.github.v3+json\" --header \"Authorization: Basic $auth\" https://api.github.com/orgs/" . $GITHUB_ORG . "/repos -d $data");
+print_r($reply_raw) . PHP_EOL;
 $reply = json_decode($reply_raw, TRUE);
+print_r($reply) . PHP_EOL;
 $github_clone_url = $reply['clone_url'];
 
 /**
