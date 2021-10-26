@@ -1,0 +1,11 @@
+{
+    "name": "pantheon-systems/pantheon-codespaces-generator",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Tyler Fahey",
+            "email": "twfahey1@gmail.com"
+        }
+    ],
+    "require": {}
+}

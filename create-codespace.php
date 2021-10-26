@@ -1,4 +1,5 @@
 <?php
+require( __DIR__ . '/vendor/autoload.php' );
 
 /**
  * Script to create a Github repo configured with Pantheon Codespaces from a Pantheon site.
