@@ -11,7 +11,7 @@ The configuration secrets for the repo required are:
 - `SSH_KEY` - A private SSH key with a public equivalent added to Pantheon dashboard - generated via `ssh-keygen -p -m PEM` - the private key should be used as the `SSH_KEY` secret, and the public key should be added to the Pantheon account to be used.
 - `SSH_CONFIG` - Can be set to the contents of a `config` file for advanced SSH usage, or use the default:
 ```
-Host *\nAddKeysToAgent yes\nUseKeychain yes
+Host *.drush.in\n\tStrictHostKeyChecking no\n\tIdentityFile ~/.ssh/id_rsa
 ```
 - `SSH_KNOWN_HOSTS` - Can be empty by default or the contents of a `known_hosts` file if desired for advanced SSH config, or use the default:
 ```
