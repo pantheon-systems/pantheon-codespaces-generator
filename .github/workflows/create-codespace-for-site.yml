@@ -29,7 +29,7 @@ jobs:
       with:
         key: ${{ secrets.SSH_KEY }}
         config: ${{ secrets.SSH_CONFIG }}
-        known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
+        known_hosts: [codeserver.dev.${{ github.event.inputs.site_uuid }}.drush.in]:2222 ${{ secrets.SSH_PUB_KEY }}
     - name: Install terminus
       run: |
         mkdir -p /tmp/terminus
