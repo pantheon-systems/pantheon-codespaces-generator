@@ -14,7 +14,7 @@ on:
         default: 'NULL'
       GITHUB_USER:
         description: 'The Github user to use when creating the repo via the Github API.'
-        default: ${{ github.actor }}
+        default: ${{ github.event.actor }}
 jobs:
   run-vrt:
     runs-on: ubuntu-latest
