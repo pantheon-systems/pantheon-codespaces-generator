@@ -9,11 +9,11 @@ require( __DIR__ . '/vendor/autoload.php' );
  * Constants
  */
 $PANTHEON_CODESPACES_URL = "https://github.com/pantheon-systems/pantheon-codespaces.git";
-$SITE_UUID = get_env('site_uuid');
-$GH_ACCESS_TOKEN = get_env('GH_ACCESS_TOKEN');
-$GITHUB_USER = get_env('GITHUB_USER');
-$GITHUB_ORG = get_env('GITHUB_ORG');
-$REPO_NAME = get_env('repo_name');
+$SITE_UUID = getenv('site_uuid');
+$GH_ACCESS_TOKEN = getenv('GH_ACCESS_TOKEN');
+$GITHUB_USER = getenv('GITHUB_USER');
+$GITHUB_ORG = getenv('GITHUB_ORG');
+$REPO_NAME = getenv('repo_name');
 
 /**
  * Get the Pantheon site info.
