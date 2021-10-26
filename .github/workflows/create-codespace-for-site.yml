@@ -37,7 +37,7 @@ jobs:
         vendor/bin/terminus auth:login --machine-token=${{ secrets.TERMINUS_MACHINE_TOKEN }}
     - name: Create the pantheon-codespace repo from the Pantheon site ${{ github.event.inputs.site_uuid }} by ${{ github.actor }}
       env:
-        GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+        GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
         GITHUB_USER: ${{ github.event.inputs.GITHUB_USER }}
         GITHUB_ORG: ${{ github.event.inputs.GITHUB_ORG }}
         site_uuid: ${{ github.event.inputs.site_uuid }}

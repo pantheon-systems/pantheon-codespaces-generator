@@ -9,7 +9,7 @@
  */
 const PANTHEON_CODESPACES_URL = "https://github.com/pantheon-systems/pantheon-codespaces.git";
 const SITE_UUID = get_env('site_uuid');
-const GITHUB_ACCESS_TOKEN = get_env('GITHUB_ACCESS_TOKEN');
+const GH_ACCESS_TOKEN = get_env('GH_ACCESS_TOKEN');
 const GITHUB_USER = get_env('GITHUB_USER');
 const GITHUB_ORG = get_env('GITHUB_ORG');
 $REPO_NAME = get_env('repo_name');
@@ -27,7 +27,7 @@ print_r($site_info) . PHP_EOL;
 if (empty($REPO_NAME)) {
     $REPO_NAME = $site_info['name'];
 }
-$auth = base64_encode(GITHUB_USER . ':' . GITHUB_ACCESS_TOKEN);
+$auth = base64_encode(GITHUB_USER . ':' . GH_ACCESS_TOKEN);
 $data = json_encode([
     'name' => $REPO_NAME,
 ]);

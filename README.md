@@ -10,7 +10,7 @@ This repo contains an Action definition that can be triggered via workflow_dispa
 The configuration secrets for the repo required are:
 - `SSH_KEY` - A private SSH key with a public equivalent added to Pantheon dashboard - generated via `ssh-keygen -p -m PEM` - the private key should be used as the `SSH_KEY` secret, and the public key should be added to the Pantheon account to be used.
 - `TERMINUS_MACHINE_TOKEN` - A machine token generated from Pantheon dashboard for the account to be used.
-- `GITHUB_ACCESS_TOKEN` - A personal access token with access to create and write to a Github repo in the same organization to be used.
+- `GH_ACCESS_TOKEN` - A personal access token with access to create and write to a Github repo in the same organization to be used.
 
 ## Usage via web:
 - Fork the repo
