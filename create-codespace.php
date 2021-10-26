@@ -46,7 +46,8 @@ $github_clone_url = $reply['clone_url'];
  */
 $pantheon_site_workspace_folder = "/tmp/site";
 // Add to ssh known_hosts
-echo (file_get_contents("~/.ssh/config") . PHP_EOL);
+print_r(shell_exec("whoami && pwd"));
+echo (file_get_contents("/.ssh/config") . PHP_EOL);
 shell_exec("git clone ssh://codeserver.dev." . $SITE_UUID . "@codeserver.dev." . $SITE_UUID . ".drush.in:2222/~/repository.git $pantheon_site_workspace_folder");
 
 /**
