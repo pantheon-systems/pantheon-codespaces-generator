@@ -33,7 +33,7 @@ $data = json_encode([
     'name' => $REPO_NAME,
 ]);
 $api_path = "https://api.github.com/orgs/" . $GITHUB_ORG . "/repos";
-print_r("Going to create Github repo using url: " . $api_path . " with name of " . $REPO_NAME);
+print_r("Going to create Github repo using url: " . $api_path . " with name of " . $REPO_NAME . " using data: " . $data . PHP_EOL);
 
 $reply_raw = shell_exec("curl -X POST -H \"Accept: application/vnd.github.v3+json\" --header \"Authorization: Basic $auth\" $api_path -d $data");
 print_r($reply_raw) . PHP_EOL;
