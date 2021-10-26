@@ -16,6 +16,8 @@ The configuration secrets for the repo required are:
 - Fork the repo
 - Configure the secrets, and make sure Actions are enabled
 - Go to the Actions tab, go to the "Create new Pantheon site Github repo" Action
+ ![image](https://user-images.githubusercontent.com/6699959/138955981-fc224d03-d91e-43c4-9e37-eee64546bd51.png)
+
 - Add the Pantheon site ID and click Run
 - You can watch the Action running in the Actions tab, and check for any errors if failures are encountered
 - Once completed, you should have a Github repo created with the Pantheon machine name as the name of the repo, and pantheon-codespaces configured in the repo
