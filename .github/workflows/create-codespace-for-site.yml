@@ -1,0 +1,47 @@
+name: Create pantheon-codespace configured repo for a Pantheon site
+on:
+  workflow_dispatch:
+    inputs:
+      site_uuid:
+        description: 'The Pantheon site UUID'
+        required: true
+        default: 'NULL'
+      GITHUB_ORG:
+        description: 'The Github organization ID to use when creating the repo.'
+        required: true
+      repo_name:
+        description: 'Optional: The Github repo name to use. The default will be the site machine name. If the repo already exists the process will fail.'
+        default: 'NULL'
+      GITHUB_USER:
+        description: 'The Github user to use when creating the repo via the Github API.'
+        default: ${{ github.actor }}
+jobs:
+  run-vrt:
+    runs-on: ubuntu-latest
+    steps:  
+    - uses: actions/checkout@v2
+    - name: Setup PHP and remove shared extension
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '7.4'
+    - name: Setup SSH
+      uses: shimataro/ssh-key-action@v2
+      with:
+        key: ${{ secrets.SSH_KEY }}
+    - name: Install terminus
+      run: |
+        mkdir -p /tmp/terminus
+        cd /tmp/terminus
+        composer require pantheon-systems/terminus:2.6.1
+        echo "/tmp/terminus/vendor/bin/" >> $GITHUB_PATH
+        vendor/bin/terminus auth:login --machine-token=${{ secrets.TERMINUS_MACHINE_TOKEN }}
+    - name: Create the pantheon-codespace repo from the Pantheon site ${{ github.event.inputs.site_uuid }} by ${{ github.actor }}
+      env:
+        GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+        GITHUB_USER: ${{ github.event.inputs.GITHUB_USER }}
+        GITHUB_ORG: ${{ github.event.inputs.GITHUB_ORG }}
+        site_uuid: ${{ github.event.inputs.site_uuid }}
+        repo_name: ${{ github.event.inputs.repo_name }}
+      run: |
+        composer install --no-interaction --no-progress
+        php create-codespace.php
