@@ -29,8 +29,8 @@ jobs:
       with:
         key: ${{ secrets.SSH_KEY }}
         config: |
-        Host *
-          StrictHostKeyChecking no
+          Host *
+            StrictHostKeyChecking no
         known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
         if_key_exists: replace
     - name: Install terminus
