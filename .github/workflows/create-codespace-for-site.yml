@@ -16,7 +16,7 @@ on:
         description: 'The Github user to use when creating the repo via the Github API.'
         default: 'NULL'
 jobs:
-  run-vrt:
+  create-pantheon-codespace-github-repo:
     runs-on: ubuntu-latest
     steps:  
     - uses: actions/checkout@v2
