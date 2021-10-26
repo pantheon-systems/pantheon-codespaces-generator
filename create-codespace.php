@@ -40,7 +40,7 @@ $github_clone_url = $reply['clone_url'];
  * Clone the Pantheon site into workspace.
  */
 $pantheon_site_workspace_folder = "/tmp/site";
-shell_exec("git clone ssh://codeserver.dev." . SITE_UUID . "@codeserver.dev." . SITE_UUID . ".drush.in:2222/~/repository.git $pantheon_site_workspace_folder")
+shell_exec("git clone ssh://codeserver.dev." . SITE_UUID . "@codeserver.dev." . SITE_UUID . ".drush.in:2222/~/repository.git $pantheon_site_workspace_folder");
 
 /**
  * Add the new Github remote.
