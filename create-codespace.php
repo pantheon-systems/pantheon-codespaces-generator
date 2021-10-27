@@ -63,3 +63,5 @@ shell_exec("cd $pantheon_site_workspace_folder && git push github");
  */
 shell_exec("cd $pantheon_site_workspace_folder && git config --global user.email \"pantheonautomation@pantheon.io\" && git config --global user.name \"Pantheon CI\"");
 shell_exec("cd $pantheon_site_workspace_folder && git clone " . $PANTHEON_CODESPACES_URL . " .devcontainer && cd .devcontainer && rm -rf .git && cd .. && git add .devcontainer && git commit -m \"Adding pantheon-codespaces scaffolding.\" && git push github");
+
+print_r(PHP_EOL . "Done! Visit the new repo here: " . $github['html_url']);
