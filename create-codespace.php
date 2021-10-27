@@ -61,4 +61,5 @@ shell_exec("cd $pantheon_site_workspace_folder && git push github");
 /**
  * Add the .devcontainer clone from PANTHEON_CODESPACES_URL and Push back up to Github.
  */
+shell_exec("cd $pantheon_site_workspace_folder && git config --global user.email \"pantheonautomation@pantheon.io\" && git config --global user.name \"Pantheon CI\"");
 shell_exec("cd $pantheon_site_workspace_folder && git submodule add " . $PANTHEON_CODESPACES_URL . " .devcontainer && cd .devcontainer && git checkout main && git add . && git commit -m \"Adding pantheon-codespaces submodule\" && git push github");
