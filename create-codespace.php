@@ -55,7 +55,7 @@ shell_exec("git clone ssh://codeserver.dev." . $SITE_UUID . "@codeserver.dev." .
 /**
  * Add the new Github remote.
  */
-shell_exec("cd $pantheon_site_workspace_folder && git remote add github $github_clone_url");
+shell_exec("cd $pantheon_site_workspace_folder && git remote add github $github_clone_url && git push github");
 
 /**
  * Add the .devcontainer clone from PANTHEON_CODESPACES_URL and Push back up to Github.
