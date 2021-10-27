@@ -5,16 +5,17 @@ on:
       site_uuid:
         description: 'The Pantheon site UUID'
         required: true
-        default: 'NULL'
+        default: ''
       GITHUB_ORG:
         description: 'The Github organization ID to use when creating the repo.'
         required: true
+      GITHUB_USER:
+        description: 'The Github username to use when creating the repo via the Github API.'
+        required: true
+        default: ''
       repo_name:
         description: 'Optional: The Github repo name to use. The default will be the site machine name. If the repo already exists the process will fail.'
-        default: 'NULL'
-      GITHUB_USER:
-        description: 'The Github user to use when creating the repo via the Github API.'
-        default: 'NULL'
+        default: ''
 jobs:
   create-pantheon-codespace-github-repo:
     runs-on: ubuntu-latest
