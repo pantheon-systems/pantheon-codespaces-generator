@@ -31,6 +31,7 @@ if (empty($REPO_NAME)) {
 $auth = base64_encode($GITHUB_USER . ':' . $GH_ACCESS_TOKEN);
 $data = json_encode([
     'name' => $REPO_NAME,
+    'private' => TRUE
 ]);
 $api_path = "https://api.github.com/orgs/" . $GITHUB_ORG . "/repos";
 print_r("Going to create Github repo using url: " . $api_path . " with name of " . $REPO_NAME . " using data: " . $data . PHP_EOL);
