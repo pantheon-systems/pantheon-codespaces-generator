@@ -41,6 +41,8 @@ print_r($reply_raw) . PHP_EOL;
 $reply = json_decode($reply_raw, TRUE);
 print_r($reply) . PHP_EOL;
 $github_clone_url = $reply['clone_url'];
+// Add in the token to the remote.
+$github_clone_url = str_replace("https://github.com", "https://$GH_ACCESS_TOKEN@github.com", $github_clone_url);
 
 /**
  * Clone the Pantheon site into workspace.
@@ -51,10 +53,9 @@ shell_exec("git clone ssh://codeserver.dev." . $SITE_UUID . "@codeserver.dev." .
 /**
  * Add the new Github remote.
  */
-print_r("Going into $pantheon_site_workspace_folder, and adding the 'github'' remote: $github_clone_url") . PHP_EOL;
+print_r("Going into $pantheon_site_workspace_folder, and adding the 'github'' remote: $github_clone_url");
+print_r(PHP_EOL);
 shell_exec("cd $pantheon_site_workspace_folder && git remote add github $github_clone_url");
-$remote_config = shell_exec("cd $pantheon_site_workspace_folder && git remote -v");
-print_r($remote_config);
 shell_exec("cd $pantheon_site_workspace_folder && git push github");
 
 /**
