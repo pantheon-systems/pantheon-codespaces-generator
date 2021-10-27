@@ -46,16 +46,16 @@ $github_clone_url = $reply['clone_url'];
  * Clone the Pantheon site into workspace.
  */
 $pantheon_site_workspace_folder = "/tmp/site";
-// Add to ssh known_hosts
-print_r(shell_exec("whoami && pwd"));
-print_r(file_get_contents("/home/runner/.ssh/config"), TRUE) . PHP_EOL;
-print_r(file_get_contents("/home/runner/.ssh/known_hosts"), TRUE) . PHP_EOL;
 shell_exec("git clone ssh://codeserver.dev." . $SITE_UUID . "@codeserver.dev." . $SITE_UUID . ".drush.in:2222/~/repository.git $pantheon_site_workspace_folder");
 
 /**
  * Add the new Github remote.
  */
-shell_exec("cd $pantheon_site_workspace_folder && git remote add github $github_clone_url && git push github");
+print_r("Going into $pantheon_site_workspace_folder, and adding the 'github'' remote: $github_clone_url") . PHP_EOL;
+shell_exec("cd $pantheon_site_workspace_folder && git remote add github $github_clone_url");
+$remote_config = shell_exec("cd $pantheon_site_workspace_folder && git remote -v");
+print_r($remote_config);
+shell_exec("cd $pantheon_site_workspace_folder && git push github");
 
 /**
  * Add the .devcontainer clone from PANTHEON_CODESPACES_URL and Push back up to Github.
