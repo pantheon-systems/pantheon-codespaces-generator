@@ -25,7 +25,7 @@ print_r($site_info) . PHP_EOL;
 /**
  * Create the repo.
  */
-if (empty($REPO_NAME)) {
+if (empty($REPO_NAME) || $REPO_NAME == 'NULL') {
     $REPO_NAME = $site_info['name'];
 }
 $auth = base64_encode($GITHUB_USER . ':' . $GH_ACCESS_TOKEN);
