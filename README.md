@@ -1,6 +1,8 @@
 # pantheon-codespaces-generator
 A generator to import Pantheon sites into a Github repo with pantheon-codespaces configured.
 
+[![Unofficial](https://img.shields.io/badge/Pantheon-Unofficial-yellow?logo=pantheon&color=FFDC28)](https://pantheon.io/docs/oss-support-levels#unofficial)
+
 This repo contains an Action definition that can be triggered via workflow_dispatch. The parameters are:
 - `site_uuid` - The site ID for the Pantheon site. You can find this when on your Pantheon site dashboard in the URL - something like "https://dashboard.pantheon.io/sites/a31e101e-bebf-4f03-874c-629a7g752ac1" - the site UUID is "a31e101e-bebf-4f03-874c-629a7g752ac1".
 - `repo_name` - Optional: The Github repo name to use. The default will be the site machine name. If the repo already exists the process will fail.
